@@ -5,17 +5,22 @@ export const eventType = defineType({
   title: "Event",
   type: "document",
   fields: [
-    defineField({name: "title", title: "Title", type: "string", validation: Rule => Rule.required()}),
+    defineField({
+      name: "title",
+      title: "Event Title",
+      type: "string",
+      validation: Rule => Rule.required(),
+    }),
     defineField({
       name: "slug",
-      title: "Slug",
+      title: "URL Slug",
       type: "slug",
       options: {source: "title", maxLength: 96},
       validation: Rule => Rule.required(),
     }),
     defineField({
       name: "status",
-      title: "Status",
+      title: "Event Status",
       type: "string",
       options: {
         list: [
@@ -26,9 +31,22 @@ export const eventType = defineType({
       },
       validation: Rule => Rule.required(),
     }),
-    defineField({name: "startDate", title: "Start Date", type: "date"}),
-    defineField({name: "endDate", title: "End Date", type: "date"}),
-    defineField({name: "shortDescription", title: "Short Description", type: "text", rows: 3}),
+    defineField({
+      name: "startDate",
+      title: "Start Date",
+      type: "date",
+    }),
+    defineField({
+      name: "endDate",
+      title: "End Date",
+      type: "date",
+    }),
+    defineField({
+      name: "shortDescription",
+      title: "Short Description",
+      type: "text",
+      rows: 3,
+    }),
     defineField({
       name: "description",
       title: "Full Description",
@@ -43,7 +61,7 @@ export const eventType = defineType({
     }),
     defineField({
       name: "gallery",
-      title: "Gallery",
+      title: "Photo Gallery",
       type: "array",
       of: [{type: "image", options: {hotspot: true}}],
     }),
