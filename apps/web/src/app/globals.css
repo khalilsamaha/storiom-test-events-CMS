@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background:  var(--background);
+  --color-foreground:  var(--foreground);
+  --font-sans:         var(--font-geist-sans);
+  --font-mono:         var(--font-geist-mono);
+  --color-card:                     var(--card);
+  --color-card-foreground:          var(--card-foreground);
+  --color-popover:                  var(--popover);
+  --color-popover-foreground:       var(--popover-foreground);
+  --color-primary:                  var(--primary);
+  --color-primary-foreground:       var(--primary-foreground);
+  --color-secondary:                var(--secondary);
+  --color-secondary-foreground:     var(--secondary-foreground);
+  --color-muted:                    var(--muted);
+  --color-muted-foreground:         var(--muted-foreground);
+  --color-accent:                   var(--accent);
+  --color-accent-foreground:        var(--accent-foreground);
+  --color-destructive:              var(--destructive);
+  --color-border:                   var(--border);
+  --color-input:                    var(--input);
+  --color-ring:                     var(--ring);
+  /* Storiom brand colours */
+  --color-brand-teal:   #3AACBE;
+  --color-brand-orange: #E8832A;
+  --color-brand-purple: #9B5EA2;
+  --color-brand-olive:  #8B9B2E;
+  --radius-sm:  calc(var(--radius) - 4px);
+  --radius-md:  calc(var(--radius) - 2px);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+}
+
+/* ── PALETTE A · SORBET ── warm peach-rose pastel */
+:root {
+  --radius: 0.75rem;
+  /* Sorbet background palette */
+  --background:            #EEF7F5;   /* light mint */
+  --foreground:            #1E0E06;   /* deep espresso */
+  --card:                  #F8FEFC;   /* near-white mint */
+  --card-foreground:       #1E0E06;
+  --popover:               #F8FEFC;
+  --popover-foreground:    #1E0E06;
+  --primary:               #1E0E06;
+  --primary-foreground:    #FDF0EA;
+  --secondary:             #DDF0EC;   /* mint secondary */
+  --secondary-foreground:  #1A3D36;
+  --muted:                 #DDF0EC;
+  --muted-foreground:      #3D6B62;   /* darker teal-green for readability */
+  --accent:                #F7E4DB;
+  --accent-foreground:     #3A1A0A;
+  --destructive:           oklch(0.577 0.245 27.325);
+  --border:                rgba(30,14,6,0.11);
+  --input:                 rgba(30,14,6,0.11);
+  --ring:                  #3AACBE;
+  --sidebar:               #F7E4DB;
+  --sidebar-foreground:    #1E0E06;
+  --sidebar-primary:       #1E0E06;
+  --sidebar-primary-foreground: #FDF0EA;
+  --sidebar-accent:        #F7E4DB;
+  --sidebar-accent-foreground: #3A1A0A;
+  --sidebar-border:        rgba(30,14,6,0.11);
+  --sidebar-ring:          #3AACBE;
+}
+
+/* Dark mode kept for reference — uses original ink palette */
+.dark {
+  --background:            #1E0E06;
+  --foreground:            #F8F0EA;
+  --card:                  #2A1408;
+  --card-foreground:       #F8F0EA;
+  --popover:               #2A1408;
+  --popover-foreground:    #F8F0EA;
+  --primary:               #F8F0EA;
+  --primary-foreground:    #2A1408;
+  --secondary:             #3A1A0C;
+  --secondary-foreground:  #F8F0EA;
+  --muted:                 #3A1A0C;
+  --muted-foreground:      #B08070;
+  --accent:                #3A1A0C;
+  --accent-foreground:     #F8F0EA;
+  --destructive:           oklch(0.704 0.191 22.216);
+  --border:                rgba(248,240,234,0.1);
+  --input:                 rgba(248,240,234,0.15);
+  --ring:                  #3AACBE;
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  body { @apply bg-background text-foreground; }
+}
+
+/* ── Storiom utilities ── */
+.brand-gradient {
+  background: linear-gradient(90deg, #3AACBE 0%, #9B5EA2 33%, #E8832A 66%, #8B9B2E 100%);
+}
+.card-elevated {
+  box-shadow: 0 1px 3px rgba(30,14,6,0.06), 0 8px 24px rgba(30,14,6,0.08);
+}
+.card-elevated-lg {
+  box-shadow: 0 4px 12px rgba(30,14,6,0.06), 0 16px 40px rgba(30,14,6,0.10);
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up   { animation: fade-up 0.5s ease both; }
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
