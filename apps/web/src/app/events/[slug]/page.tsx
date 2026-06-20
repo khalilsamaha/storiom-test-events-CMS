@@ -1,6 +1,6 @@
 import Image from "next/image"
 import {notFound} from "next/navigation"
-import {PortableText} from "next-sanity"
+import {PortableText} from "@portabletext/react"
 import {client, urlFor} from "@/lib/sanity"
 
 type EventItem = {
@@ -22,6 +22,7 @@ const query = `*[_type == "event" && slug.current == $slug][0] {
 }`
 
 export const revalidate = 60
+export const dynamic = "force-dynamic"
 
 export default async function EventDetailsPage({
   params,
