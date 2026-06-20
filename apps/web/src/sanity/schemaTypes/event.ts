@@ -65,11 +65,5 @@ export const eventType = defineType({
       type: "array",
       of: [{type: "image", options: {hotspot: true}}],
     }),
-    defineField({
-      name: "published",
-      title: "Published",
-      type: "boolean",
-      initialValue: false,
-    }),
   ],
 })

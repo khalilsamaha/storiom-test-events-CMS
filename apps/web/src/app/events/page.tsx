@@ -12,7 +12,7 @@ type EventItem = {
   coverImage?: any
 }
 
-const query = `*[_type == "event" && published == true] | order(startDate desc) {
+const query = `*[_type == "event"] | order(startDate desc) {
   title,
   slug,
   status,
